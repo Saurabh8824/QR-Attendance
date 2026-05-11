@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 import socket
 import os
 
@@ -13,7 +14,7 @@ s.connect(("8.8.8.8", 80))
 server_ip = s.getsockname()[0]
 
 # 🔹 Automatically allow localhost + detected LAN IP
-ALLOWED_HOSTS = ["qrattendance-production-5d22.up.railway.app", ".ngrok-free.app", "ngrok-free.dev", "mooned-mom-unlikable.ngrok-free.dev", '127.0.0.1', '10.218.31.108', 'localhost', f"{server_ip}", '*' ]
+ALLOWED_HOSTS = [".onrender.com", "qrattendance-production-5d22.up.railway.app", ".ngrok-free.app", "ngrok-free.dev", "mooned-mom-unlikable.ngrok-free.dev", '127.0.0.1', '10.218.31.108', 'localhost', f"{server_ip}", '*' ]
 
 # ✅ CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,8 +65,10 @@ ROOT_URLCONF = 'qr_attendance.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'DIRS': [BASE_DIR / "qr_app" / "templates"],
+        'DIRS': [
+             BASE_DIR / "templates",
+             BASE_DIR / "qr_app" / "templates",
+         ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,14 +84,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'qr_attendance.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'qr_attendance_db',
-        'USER': 'root',
-        'PASSWORD': 'root@123',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    "default": dj_database_url.parse(
+        os.environ.get("DATABASE_URL")
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -104,12 +103,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "qr_app" / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-print("CSRF TRUSTED:", CSRF_TRUSTED_ORIGINS)
 
 
 
