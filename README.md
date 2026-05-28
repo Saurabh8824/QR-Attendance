@@ -156,7 +156,8 @@ python manage.py runserver
 
 ```
 
-Once initialized, navigate to `http://127.0.0.1:8000/` in your preferred web browser.
+### 7. Once initialized, navigate to 
+`http://127.0.0.1:8000/` in your preferred web browser.
 
 ---
 
@@ -208,7 +209,7 @@ This repository includes custom runtime parameters native to cloud engines like 
     pip install -r requirements.txt
     python manage.py collectstatic --no-input
     python manage.py migrate
-    ```
+```
 * **Web Server Engine Command (`Procfile`):**
 ```text
     web: gunicorn qr_attendance.wsgi:application
