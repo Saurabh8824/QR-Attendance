@@ -1,17 +1,12 @@
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ # 📊 QR Code Attendance Management System                                                        │
-│                                                                                                  │
-│ <div align="center">                                                                             │
-│                                                                                                  │
-│ ![Django](https://img.shields.io/badge/Django-4.2+-092E20?style=for-the-badge&logo=django)       │
-│ ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)      │
-│ ![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=for-the-badge) │
-│ ![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)            │
-│                                                                                                  │
-│ </div>                                                                                           │
-│                                                                                                  │
-│ > [!NOTE]                                                                                        │
-│ > A modern, robust, and secure **Django-based QR Code Attendance Management System** tailored     │
+# 📊 QR Code Attendance Management System       <div align="center">                                                                           
+![Django](https://img.shields.io/badge/Django-4.2+-092E20?style=for-the-badge&logo=django)    
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)   ![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=for-the-badge) │
+![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)            
+                                                                                                 
+ </div>                                                                                           
+                                                                                                 
+ > [!NOTE]                                                                                        
+ > A modern, robust, and secure **Django-based QR Code Attendance Management System** tailored     
 │ > for colleges, schools, and academic institutions. This system streamlines classroom            │
 │ > management by allowing faculty members to instantly generate dynamic attendance sessions       │
 │ > while empowering students to seamlessly mark their presence via real-time QR code scanning.   │
