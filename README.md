@@ -117,12 +117,12 @@ cd qr-attendance-system
 ```bash
     python -m venv venv
     venv\Scripts\activate
-    ```
+```
 * **Linux / macOS:**
 ```bash
     python3 -m venv venv
     source venv/bin/activate
-    ```
+```
 
 ### 3. Install Core Dependencies
 ```bash
@@ -213,7 +213,6 @@ This repository includes custom runtime parameters native to cloud engines like 
 * **Web Server Engine Command (`Procfile`):**
 ```text
     web: gunicorn qr_attendance.wsgi:application
-    ```
 ```
 ---
 
